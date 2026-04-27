@@ -1,0 +1,42 @@
+{
+    "login":{
+        "account": {
+            "name": "Costa Maués",
+            "email": "costamaues@gmail.com",
+            "cpf": "11579653006"
+        },
+        "plan":{
+            "name":"Plano Black",
+             "id": 2,
+             "price": 79.99
+        },
+        "credit_card":{
+            "number":"5402395677324565",
+            "holder": "Costa Maués",
+            "month":"12",
+            "year":"2030",
+            "cvv":"123"
+        }
+    },
+    "update":{
+        "account": {
+            "name": "Dominic Toreto",
+            "email": "dominic@gmail.com",
+            "cpf": "50413913007",
+            "weight": 80,
+            "height": 190
+        },
+        "plan":{
+            "name":"Plano Black",
+             "id": 2,
+             "price": 79.99
+        },
+        "credit_card":{
+            "number":"5402395677324565",
+            "holder": "Dominic Toreto",
+            "month":"12",
+            "year":"2030",
+            "cvv":"123"
+        }
+    }
+}

@@ -1,16 +1,39 @@
-***Settings***
+*** Settings ***
 Documentation       Arquivo principal do projeto robot
+Library             AppiumLibrary
+Library         JSONLibrary
 
-Library         AppiumLibrary
+Library         ../../libs/Database.py
 
-***Keywords***
+Resource        ../../services/Service.resource
+
+Resource        ./actions/account.resource
+Resource        ./actions/login.resource
+Resource        ./actions/components/menu.resource
+Resource        ./actions/mybody.resource
+Resource        ./actions/components/popup.resource
+
+*** Keywords ***
 
 Start session
-
     Open Application            http://localhost:4723
     ...                         platformName=Android
     ...                         automationName=UIAutomator2
     ...                         deviceName=Emulator
     ...                         udid=emulator-5554
-    ...                         app=${EXCDIR}/app/smartbit-beta.apk
+    ...                         app=${EXECDIR}/app/smartbit-beta.apk
     ...                         autoGrantPermissions=true
+
+    Wait Until Page Contains    IP da API    30
+
+Finish session
+    Capture Page Screenshot
+    Close Application
+
+Get Json fixture
+    [Arguments]            ${scenario}
+
+    ${data}         Load Json From File
+    ...             ${EXECDIR}/resources/fixtures/data.json    
+
+    RETURN        ${data}[${scenario}]
